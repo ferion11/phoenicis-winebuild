@@ -15,13 +15,13 @@ env:
 
 before_install:
   - pip install docker
-  - git clone https://github.com/wine-staging/wine-patched.git
+  - git clone --branch wine-5.11 --depth 1 https://github.com/ValveSoftware/wine.git
 
 before_script:
   - echo "******* Starting here! *******"
 
 script:
-  - python3.7 phoenicis-make.py --wine-src=$HOME/wine-patched/ --environment=linux-x86 --architecture=x86 --build
+  - python3.7 phoenicis-make.py --wine-src=$HOME/wine/ --environment=linux --architecture=x86 --build
 
 after_success:
   - echo "******* Sucess! *******"
