@@ -14,6 +14,7 @@ env:
     - RELEASE_BRANCH="master"
 
 before_install:
+  - pip install docker
   - git clone https://github.com/wine-staging/wine-patched.git
 
 before_script:
