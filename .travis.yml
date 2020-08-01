@@ -24,7 +24,7 @@ before_script:
   - echo "******* Starting here! *******"
 
 script:
-  - python3.7 phoenicis-make.py --wine-src=$HOME/wine-wine-5.11/ --environment=linux --architecture=x86 --build
+  - python3.7 phoenicis-make.py --wine-src=$HOME/wine-wine-5.11/ --environment=linux/amd64 --architecture=x86 --build
 
 after_success:
   - echo "******* Sucess! *******"
