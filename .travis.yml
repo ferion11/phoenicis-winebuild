@@ -1,0 +1,37 @@
+dist: bionic
+
+services:
+  - docker
+
+sudo: required
+
+language: python
+  - "3.7"
+
+env:
+  global:
+    - RELEASE_BRANCH="master"
+
+before_install:
+  - git clone https://github.com/wine-staging/wine-patched.git
+
+before_script:
+  - echo "******* Starting here: *******"
+
+script:
+  - python3.7 phoenicis-make.py --wine-src=$HOME/wine-patched/ --environment=linux-x86 --architecture=x86 --build
+
+after_success:
+  - echo "******* Sucess! *******"
+
+branches:
+  except:
+    - # Do not build tags that we create when we upload to GitHub Releases
+    - /^(?i:continuous)$/
+    - /^release-[0-9a-z\-]*/
+    - /^(?i:untagged)-.*$/
+
+notifications:
+  email:
+    on_success: change # default: change
+    on_failure: always # default: always
