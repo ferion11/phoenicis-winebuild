@@ -16,7 +16,7 @@ before_install:
   - git clone https://github.com/wine-staging/wine-patched.git
 
 before_script:
-  - echo "******* Starting here: *******"
+  - echo "******* Starting here! *******"
 
 script:
   - python3.7 phoenicis-make.py --wine-src=$HOME/wine-patched/ --environment=linux-x86 --architecture=x86 --build
