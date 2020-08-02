@@ -22,12 +22,14 @@ install:
 
 before_script:
   - echo "******* Starting here! *******"
+  - mkdir result
 
 script:
-  - python3.7 phoenicis-make.py --wine-src=$HOME/wine-wine-5.11/ --environment=wine_osxcross/linux/amd64 --architecture=x86 --build
+  - python3.7 phoenicis-make.py --wine-src=$HOME/wine-wine-5.11/ --archive=$HOME/result --environment=wine_osxcross/linux/amd64 --architecture=x86 --os=linux --build
 
 after_success:
   - echo "******* Sucess! *******"
+  - ls -la result
 
 branches:
   except:
