@@ -23,6 +23,7 @@ install:
 before_script:
   - echo "******* Starting here! *******"
   - mkdir result
+  - python3.7 run_web_server.py &
 
 script:
   - python3.7 phoenicis-make.py --wine-src=$HOME/wine-wine-5.11/ --archive=$HOME/result --environment=wine_osxcross/linux/amd64 --architecture=x86 --os=linux --build
