@@ -15,6 +15,7 @@ env:
 
 before_install:
   - pip install docker
+  - pip install flask
   - wget -c https://github.com/ValveSoftware/wine/archive/wine-5.11.tar.gz
 
 install:
